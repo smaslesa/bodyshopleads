@@ -1,26 +1,629 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ultra-Luxury Typography System */
+@layer base {
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+    /* Luxury automotive-inspired font stack */
+    --font-display: 'Playfair Display', 'Cormorant Garamond', serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-luxury: 'Cormorant Garamond', 'Playfair Display', serif;
+    --font-mono: 'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
+    
+    /* Premium spacing scale */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    --space-4xl: 6rem;
+    --space-5xl: 8rem;
+    
+    /* Glass morphism variables */
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+  /* Ultra-Luxury Color System - Inspired by Rolls-Royce, Ferrari, Aston Martin */
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Primary Luxury Palette */
+    --luxury-black: #0a0a0a;        /* Deep luxury black */
+    --luxury-charcoal: #1a1a1a;     /* Rich charcoal */
+    --luxury-slate: #2a2a2a;        /* Premium slate */
+    --luxury-platinum: #e5e7eb;     /* Platinum silver */
+    --luxury-pearl: #f8fafc;        /* Pearl white */
+    
+    /* Accent Colors */
+    --luxury-gold: #d4af37;         /* Classic luxury gold */
+    --luxury-amber: #f59e0b;        /* Warm amber accent */
+    --luxury-champagne: #f7e7ce;    /* Champagne highlight */
+    --luxury-bronze: #cd7f32;       /* Bronze accent */
+    
+    /* Luxury Grays */
+    --luxury-ash: #374151;          /* Sophisticated ash */
+    --luxury-smoke: #6b7280;        /* Elegant smoke */
+    --luxury-mist: #9ca3af;         /* Subtle mist */
+    --luxury-fog: #d1d5db;          /* Light fog */
+    
+    /* Status Colors */
+    --luxury-success: #065f46;      /* Deep forest green */
+    --luxury-warning: #92400e;      /* Rich amber warning */
+    --luxury-error: #7f1d1d;        /* Deep burgundy error */
+    
+    /* Legacy Colors for Compatibility */
+    --navy: #0e1e3b;
+    --blue: #0047ab;
+    --light-blue: #4b7bec;
+    --red: #c41e3a;
+    --bright-red: #ff0000;
+    --white: #ffffff;
+    --off-white: #f8f9fa;
+    --silver: #e5e7eb;
+    --gunmetal: #374151;
+    --gold: #ffd700;
+    --green: #00c851;
+
+    /* Modern Collision Center Palette - Updated for Luxury */
+    --modern-primary: var(--luxury-black);
+    --modern-secondary: var(--luxury-charcoal);
+    --modern-accent: var(--luxury-gold);
+    --modern-light: var(--luxury-pearl);
+    --modern-white: #ffffff;
+    --modern-gray: var(--luxury-smoke);
+    --modern-dark-gray: var(--luxury-ash);
+    --modern-success: var(--luxury-success);
+    --modern-warning: var(--luxury-warning);
+    --modern-error: var(--luxury-error);
+  }
+
+  /* Enhanced base styles for luxury */
+  * {
+    @apply border-gray-600;
+  }
+  
+  html {
+    @apply scroll-smooth;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'ss01', 'ss02';
+    font-variant-numeric: oldstyle-nums;
+    font-variant-ligatures: common-ligatures;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Account for streamlined header */
+  }
+  
+  body {
+    @apply bg-black text-white font-sans antialiased;
+    font-family: var(--font-body);
+    font-feature-settings: 'rlig' 1, 'calt' 1, 'kern' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 100%);
+  }
+  
+  /* Ultra-Luxury Typography Hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-light tracking-tight text-white;
+    font-feature-settings: 'ss01', 'ss02', 'cv01', 'cv02';
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  h1 {
+    @apply text-6xl md:text-8xl lg:text-9xl leading-[0.85];
+    letter-spacing: -0.02em;
+    font-weight: 100;
+  }
+  
+  h2 {
+    @apply text-4xl md:text-6xl leading-tight;
+    letter-spacing: -0.015em;
+    font-weight: 200;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-4xl leading-tight;
+    letter-spacing: -0.01em;
+    font-weight: 300;
+  }
+  
+  p {
+    @apply text-base md:text-lg leading-relaxed text-gray-300;
+    font-family: var(--font-body);
+  }
+  
+  .luxury-text {
+    font-family: var(--font-luxury);
+    @apply text-amber-100;
+  }
+  
+  .luxury-heading {
+    font-family: var(--font-display);
+    @apply text-white font-extralight tracking-wider;
+  }
+  
+  /* Enhanced focus states */
+  *:focus {
+    @apply outline-none;
+  }
+  
+  *:focus-visible {
+    @apply ring-2 ring-primary-500 ring-offset-2 ring-offset-neutral-50;
+  }
+
+  /* Premium scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    transition: background 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Premium component styles */
+@layer components {
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  /* Glass morphism card */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+  
+  /* Premium gradient backgrounds */
+  .bg-premium-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+  }
+  
+  .bg-luxury-gradient {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 50%, #fdf4ff 100%);
+  }
+  
+  .bg-glass-gradient {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+  }
+  
+  /* Enhanced button styles */
+  .btn-premium {
+    @apply relative overflow-hidden rounded-lg px-8 py-4 font-semibold transition-all duration-300;
+    @apply bg-gradient-to-r from-accent-500 to-accent-600 text-white;
+    @apply shadow-large hover:shadow-extra-large;
+    @apply transform hover:scale-105 active:scale-95;
+  }
+  
+  .btn-premium::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 transition-opacity duration-300;
+  }
+  
+  .btn-premium:hover::before {
+    @apply opacity-100;
+  }
+
+  .btn-secondary {
+    @apply relative overflow-hidden rounded-lg px-8 py-4 font-semibold transition-all duration-300;
+    @apply bg-white border-2 border-primary-600 text-primary-600;
+    @apply shadow-medium hover:shadow-large hover:bg-primary-600 hover:text-white;
+    @apply transform hover:scale-105 active:scale-95;
+  }
+  
+  /* Premium card styles */
+  .card-premium {
+    @apply bg-white/80 backdrop-blur-xl border border-white/20 rounded-4xl p-8;
+    @apply shadow-large hover:shadow-extra-large transition-all duration-500;
+    @apply transform hover:-translate-y-2;
+  }
+
+  .card-glass {
+    @apply glass-card rounded-4xl p-8 transition-all duration-500;
+    @apply transform hover:-translate-y-2 hover:shadow-extra-large;
+  }
+  
+  /* Professional text effects */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 bg-clip-text text-transparent;
+  }
+  
+  .text-shimmer {
+    @apply bg-gradient-to-r from-neutral-900 via-neutral-500 to-neutral-900 bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+  }
+
+  /* Premium form styles */
+  .form-input-premium {
+    @apply w-full px-6 py-4 bg-white/80 backdrop-blur-xl border border-white/20 rounded-2xl;
+    @apply focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+    @apply transition-all duration-300 placeholder:text-neutral-400;
+    @apply shadow-soft focus:shadow-medium;
+  }
+
+  /* Navigation styles */
+  .nav-premium {
+    @apply fixed top-0 left-0 right-0 z-50 transition-all duration-500;
+    @apply bg-white/80 backdrop-blur-xl border-b border-white/20;
+    @apply shadow-soft;
+  }
+
+  /* Section styles */
+  .section-premium {
+    @apply py-24 md:py-32 lg:py-40 relative overflow-hidden;
+  }
+  
+  /* American Body Shop Utilities */
+  .bg-navy { background-color: var(--navy); }
+  .bg-blue { background-color: var(--blue); }
+  .bg-light-blue { background-color: var(--light-blue); }
+  .bg-red { background-color: var(--red); }
+  .bg-bright-red { background-color: var(--bright-red); }
+  .bg-off-white { background-color: var(--off-white); }
+  .bg-silver { background-color: var(--silver); }
+  .bg-gunmetal { background-color: var(--gunmetal); }
+  .bg-gold { background-color: var(--gold); }
+  .bg-green { background-color: var(--green); }
+  
+  .text-navy { color: var(--navy); }
+  .text-blue { color: var(--blue); }
+  .text-light-blue { color: var(--light-blue); }
+  .text-red { color: var(--red); }
+  .text-bright-red { color: var(--bright-red); }
+  .text-gunmetal { color: var(--gunmetal); }
+  .text-gold { color: var(--gold); }
+  .text-green { color: var(--green); }
+  
+  .border-navy { border-color: var(--navy); }
+  .border-blue { border-color: var(--blue); }
+  .border-red { border-color: var(--red); }
+  .border-gold { border-color: var(--gold); }
+
+  /* American Body Shop Components */
+  .btn-american {
+    @apply relative overflow-hidden rounded-lg px-8 py-4 font-bold transition-all duration-300;
+    @apply bg-red hover:bg-bright-red text-white;
+    @apply shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95;
+  }
+  
+  .btn-american-outline {
+    @apply relative overflow-hidden rounded-lg px-8 py-4 font-bold transition-all duration-300;
+    @apply bg-transparent border-2 border-blue text-blue hover:bg-blue hover:text-white;
+    @apply shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95;
+  }
+  
+  .card-american {
+    @apply bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500;
+    @apply transform hover:-translate-y-2;
+  }
+  
+  .glass-american {
+    @apply bg-white/10 backdrop-blur border border-white/20 rounded-xl;
+  }
+  
+  .patriotic-gradient {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 50%, var(--red) 100%);
+  }
+
+  /* Premium animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .animate-slide-in {
+    animation: slideIn 0.8s ease-out forwards;
+  }
+}
+
+/* Premium keyframes */
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Luxury-specific animations */
+@keyframes luxuryFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes luxuryGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6), 0 0 60px rgba(212, 175, 55, 0.3);
+  }
+}
+
+@keyframes elegantFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+/* Luxury utility classes */
+.animate-luxury-fade-in {
+  animation: luxuryFadeIn 1.2s ease-out forwards;
+}
+
+.animate-gold-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: goldShimmer 3s linear infinite;
+}
+
+.animate-luxury-glow {
+  animation: luxuryGlow 3s ease-in-out infinite;
+}
+
+.animate-elegant-float {
+  animation: elegantFloat 6s ease-in-out infinite;
+}
+
+/* Luxury-specific utilities */
+.bg-radial-gradient {
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
+}
+
+.luxury-text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.luxury-glow {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.luxury-glow-hover:hover {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.5), 0 0 60px rgba(212, 175, 55, 0.2);
+}
+
+/* Enhanced scroll experience */
+.luxury-section {
+  @apply relative overflow-hidden;
+  scroll-margin-top: 80px;
+}
+
+.luxury-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+}
+
+/* Smooth section transitions */
+.luxury-section {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.luxury-section.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Improved section spacing */
+.section-spacing {
+  @apply py-24 md:py-32 lg:py-40;
+}
+
+/* Parallax effect for luxury feel */
+.parallax-bg {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+/* Responsive design enhancements */
+@media (max-width: 640px) {
+  h1 {
+    @apply text-5xl;
+  }
+  
+  h2 {
+    @apply text-3xl;
+  }
+  
+  .card-premium {
+    @apply p-6 rounded-3xl;
+  }
+
+  .btn-premium, .btn-secondary {
+    @apply px-6 py-3 text-base rounded-xl;
+  }
+
+  .section-premium {
+    @apply py-16 md:py-20;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --glass-bg: rgba(0, 0, 0, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
+
+/* Ultra-Luxury Template Utilities */
+.luxury-gradient {
+  background: linear-gradient(135deg, var(--luxury-black) 0%, var(--luxury-charcoal) 50%, var(--luxury-slate) 100%);
+}
+
+.luxury-gold-gradient {
+  background: linear-gradient(135deg, var(--luxury-gold) 0%, var(--luxury-amber) 50%, var(--luxury-bronze) 100%);
+}
+
+.luxury-card {
+  @apply bg-black/70 backdrop-blur-xl border border-amber-400/20 shadow-2xl hover:shadow-amber-400/20 transition-all duration-700;
+  @apply transform hover:-translate-y-2 hover:border-amber-400/50 hover:bg-black/80;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.luxury-btn {
+  @apply px-8 py-4 font-light tracking-[0.15em] uppercase text-sm transition-all duration-500 transform hover:scale-[1.02];
+}
+
+.luxury-btn-primary {
+  @apply luxury-btn bg-gradient-to-r from-amber-400 to-amber-500 text-black hover:shadow-xl hover:shadow-amber-400/20;
+}
+
+.luxury-btn-secondary {
+  @apply luxury-btn border border-white/30 text-white hover:border-amber-400 hover:text-amber-400 hover:shadow-xl hover:shadow-white/10;
+}
+
+.luxury-btn-ghost {
+  @apply luxury-btn bg-black/40 backdrop-blur-xl border border-amber-400/20 text-white hover:bg-amber-400/10 hover:border-amber-400/60;
+}
+
+/* Modern Template Utilities - Updated for Luxury */
+.modern-gradient {
+  background: var(--luxury-gradient);
+}
+
+.modern-card {
+  @apply luxury-card;
+}
+
+.modern-btn {
+  @apply luxury-btn;
+}
+
+.modern-btn-primary {
+  @apply luxury-btn-primary;
+}
+
+.modern-btn-secondary {
+  @apply luxury-btn-secondary;
+}
+
+/* Print styles */
+@media print {
+  * {
+    @apply text-black bg-white shadow-none;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
 }
