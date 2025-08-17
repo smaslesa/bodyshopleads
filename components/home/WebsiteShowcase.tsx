@@ -84,13 +84,13 @@ const WebsiteShowcase: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 max-w-6xl mx-auto"
+              className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 max-w-7xl mx-auto"
             >
               {/* Special header for American demo */}
               {pkg.id === 1 && (
                 <div className="bg-gradient-to-r from-blue-600 to-red-600 text-white text-center py-4">
-                  <h3 className="text-2xl font-bold">🇺🇸 Live Interactive Demo</h3>
-                  <p className="text-blue-100">Click, scroll, and explore the actual website below!</p>
+                  <h3 className="text-2xl font-bold">🇺🇸 Live Website Preview</h3>
+                  <p className="text-blue-100">Click below to explore the full interactive demo!</p>
                 </div>
               )}
               {/* Browser Bar */}
@@ -108,14 +108,31 @@ const WebsiteShowcase: React.FC = () => {
               {/* Website Preview */}
               <div className="relative bg-white overflow-hidden">
                 {pkg.id === 1 || pkg.id === 2 ? (
-                  // Show iframe for both featured demos (American & Modern) - MUCH BIGGER
-                  <div className="bg-white" style={{ height: '800px' }}>
+                  // Show iframe for both featured demos (American & Modern) - Static Preview
+                  <div className="relative bg-white" style={{ height: '800px' }}>
                     <iframe 
                       src={pkg.demoUrl}
-                      className="w-full h-full border-0"
-                      title={`${pkg.name} Demo`}
+                      className="w-full h-full border-0 pointer-events-none"
+                      title={`${pkg.name} Preview`}
                       loading="lazy"
                     />
+                    {/* Always visible CTA overlay */}
+                    <div className="absolute inset-0 bg-black/5 flex items-center justify-center">
+                      <motion.a
+                        href={pkg.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-white text-neutral-900 px-12 py-6 rounded-xl font-bold text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center gap-4 border-2 border-blue-600 hover:border-red-600"
+                        whileHover={{ scale: 1.05, y: -5 }}
+                        whileTap={{ scale: 0.95 }}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.5 }}
+                      >
+                        View Full Interactive Demo
+                        <ArrowRight className="w-6 h-6" />
+                      </motion.a>
+                    </div>
                   </div>
                 ) : (
                   // Show placeholder for other demos
