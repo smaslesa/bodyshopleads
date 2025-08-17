@@ -122,10 +122,7 @@ const Services: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Truth Statement */}
-                  <div className="bg-blue-50 rounded-lg p-4 border-l-4 border-primary-500">
-                    <p className="text-neutral-700 italic text-sm">{service.truth}</p>
-                  </div>
+
 
                   {/* Features */}
                   <div className="space-y-3 text-left">

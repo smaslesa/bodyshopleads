@@ -252,9 +252,6 @@ export default function GoogleAdsPage() {
                     <span className="text-xl text-gray-600">{pkg.priceUnit}</span>
                   </div>
                   <p className="text-green-600 font-semibold mt-2">{pkg.value}</p>
-                  <div className="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500 mt-4">
-                    <p className="text-neutral-700 italic text-sm">{pkg.truth}</p>
-                  </div>
                 </div>
 
                 <div className="space-y-4 mb-8">
