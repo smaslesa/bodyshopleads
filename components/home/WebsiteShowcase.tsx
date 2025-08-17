@@ -109,30 +109,14 @@ const WebsiteShowcase: React.FC = () => {
               <div className="relative bg-white overflow-hidden">
                 {pkg.id === 1 || pkg.id === 2 ? (
                   // Show iframe for both featured demos (American & Modern) - Static Preview
-                  <div className="relative bg-white" style={{ height: '800px' }}>
+                  <div className="bg-white" style={{ height: '800px' }}>
                     <iframe 
                       src={pkg.demoUrl}
                       className="w-full h-full border-0 pointer-events-none"
                       title={`${pkg.name} Preview`}
                       loading="lazy"
+                      scrolling="no"
                     />
-                    {/* Always visible CTA overlay */}
-                    <div className="absolute inset-0 bg-black/5 flex items-center justify-center">
-                      <motion.a
-                        href={pkg.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-white text-neutral-900 px-12 py-6 rounded-xl font-bold text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center gap-4 border-2 border-blue-600 hover:border-red-600"
-                        whileHover={{ scale: 1.05, y: -5 }}
-                        whileTap={{ scale: 0.95 }}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.5 }}
-                      >
-                        View Full Interactive Demo
-                        <ArrowRight className="w-6 h-6" />
-                      </motion.a>
-                    </div>
                   </div>
                 ) : (
                   // Show placeholder for other demos

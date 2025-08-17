@@ -16,7 +16,6 @@ const Services: React.FC = () => {
       originalPrice: '$997/mo',
       badge: 'MOST POPULAR',
       value: 'Everything included • No setup fees',
-      truth: 'Cheaper than your Yellow Pages ad that brings zero customers',
       features: [
         'Professional 10-page website',
         'Mobile responsive design',
@@ -38,7 +37,6 @@ const Services: React.FC = () => {
       originalPrice: null,
       badge: 'FASTEST RESULTS',
       value: '+ your ad budget (minimum $500/month)',
-      truth: 'Stop wasting money on ads that don\'t convert',
       features: [
         'Everything from Complete Digital Presence',
         'Complete Google Ads campaign management',

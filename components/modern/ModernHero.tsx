@@ -45,7 +45,7 @@ const ModernHero = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
+              transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="inline-flex items-center gap-4 mb-12"
             >
               <div className="h-px w-16 bg-gradient-to-r from-transparent to-amber-400"></div>
@@ -61,7 +61,7 @@ const ModernHero = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 1.2, ease: "easeOut" }}
+              transition={{ delay: 0.3, duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="mb-12"
             >
               <h1 className="text-6xl md:text-8xl lg:text-9xl font-extralight text-white leading-[0.85] tracking-[-0.02em] mb-8 luxury-text-shadow">
