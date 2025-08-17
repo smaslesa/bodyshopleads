@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 export async function POST(request: NextRequest) {
   try {
@@ -17,6 +17,16 @@ export async function POST(request: NextRequest) {
         { error: 'Missing required fields: name, email, and shop name are required' },
         { status: 400 }
       );
+    }
+
+    // Check if Resend is configured
+    if (!resend) {
+      console.log('Resend API key not configured, skipping email send');
+      return NextResponse.json({
+        success: true,
+        message: "Thanks! We'll call you within 24 hours",
+        note: "Email service not configured"
+      });
     }
 
     // Send notification email to you
